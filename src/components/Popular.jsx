@@ -17,7 +17,7 @@ function Popular() {
       const api = await fetch(
         `https://api.spoonacular.com/recipes/random?apiKey=${
           import.meta.env.VITE_API_KEY
-        }&number=9`
+        }&number=9&tags=vegetarian`
       );
       const data = await api.json();
       localStorage.setItem("popular", JSON.stringify(data.recipes));
@@ -32,7 +32,7 @@ function Popular() {
         <h3>Popular Picks</h3>
         <Splide
           options={{
-            perPage: 3,
+            perPage: 4,
             arrows: false,
             pagination: false,
             drag: "free",
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 20rem;
   border-radius: 2rem;
   position: relative;
   img {
